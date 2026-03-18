@@ -1,82 +1,82 @@
 # 🧭 WhatsNavigator
 
-> **The Ultimate WhatsApp Bot Framework for .NET 9 (Downgraded to 8.0 for ultimate compatibility)**
+> **The Ultimate WhatsApp Bot Framework for .NET 8.0+**
 
-WhatsNavigator es un framework **opinionado**, potente y extremadamente sencillo de usar, diseñado específicamente para dominar la **WhatsApp Cloud API** de Meta. No es solo un cliente; es el motor que permite construir bots de producción con una arquitectura limpia y una experiencia de desarrollo fluida.
-
----
-
-## ✨ Características que lo hacen único
-
-*   🚀 **Fluent Routing**: Registra comandos y manejadores con una sintaxis que fluye de forma natural.
-*   🛡️ **Middleware Middleware**: Inyecta lógica de auditoría, logging o seguridad global en nanosegundos.
-*   🧠 **State Management Nativo**: Soporte *out-of-the-box* para gestionar conversaciones complejas (InMemory y Redis).
-*   🎭 **Mock & Simulation**: Desarrolla localmente sin cables, sin API Keys y sin cuenta de Meta.
-*   🔌 **Inyección de Dependencias**: Perfectamente integrado con el ecosistema de `IServiceCollection`.
+WhatsNavigator is an **opinionated**, powerful, and extremely easy-to-use framework designed specifically to master the **Meta WhatsApp Cloud API**. It's not just a client; it's the engine that allows you to build production-ready bots with a clean architecture and a fluid developer experience.
 
 ---
 
-## 🏎️ Inicio Rápido
+## ✨ Features that make it unique
 
-Configura tu bot en menos de 1 minuto:
+*   🚀 **Fluent Routing**: Register commands and handlers with a syntax that flows naturally.
+*   🛡️ **Middleware Pipeline**: Inject audit, logging, or global security logic in nanoseconds.
+*   🧠 **Native State Management**: Out-of-the-box support for managing complex conversations (InMemory and Redis).
+*   🎭 **Mock & Simulation**: Develop locally without cables, API Keys, or a Meta account.
+*   🔌 **Dependency Injection**: Perfectly integrated with the `IServiceCollection` ecosystem.
+
+---
+
+## 🏎️ Quick Start
+
+Set up your bot in less than 1 minute:
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuración de WhatsNavigator
+// WhatsNavigator Configuration
 builder.Services.AddWhatsNavigator(options => {
     options.ApiToken = "MY_META_TOKEN";
     options.PhoneNumberId = "PHONE_ID";
 })
-.Use<LoggingMiddleware>() // Middleware global
+.Use<LoggingMiddleware>() // Global middleware
 .OnCommand("ping", async ctx => {
     await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "🏓 Pong!");
 })
-.OnMessage(m => m.Text?.Contains("comprar") == true, async ctx => {
-    await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "🛒 ¿Qué te gustaría comprar?");
+.OnMessage(m => m.Text?.Contains("buy") == true, async ctx => {
+    await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "🛒 What would you like to buy?");
 });
 
 var app = builder.Build();
-app.MapControllers(); // Expone el endpoint /webhook automáticamente
+app.MapControllers(); // Automatically exposes the /webhook endpoint
 app.Run();
 ```
 
 ---
 
-## 🛠️ Sandbox Local (Sin Cuenta de Meta)
+## 🛠️ Local Sandbox (No Meta Account Required)
 
-¿No tienes cuenta de Meta? **No hay problema.** WhatsNavigator detecta si no hay Token y activa el **modo consola** automáticamente. 
+Don't have a Meta account? **No problem.** WhatsNavigator detects if there's no Token and automatically activates **Console Mock Mode**.
 
-Usa nuestro simulador incluido:
+Use our included simulator:
 ```powershell
-.\simulator.ps1 -Msg "Hola! Quiero probar el bot"
+.\simulator.ps1 -Msg "Hello! I want to test the bot"
 ```
 
 ---
 
-## 📋 Roadmap & Tareas (Tareas por hacer)
+## 📋 Roadmap (To-Do List)
 
-¿Quieres contribuir? Aquí tienes lo que hemos hecho y lo que soñamos para el futuro:
+Want to contribute? Here's what we've built and what we dream of for the future:
 
-### ✅ Finalizado (Available Now)
-- [x] Motor de Routing principal (Commands/Messages).
-- [x] Pipeline de Middlewares.
-- [x] Soporte para State (InMemory / Redis).
-- [x] Cliente HTTP para mensajes de texto y plantillas.
-- [x] Webhook Controller automatizado.
-- [x] Modo de simulación local (MOCK CLI).
+### ✅ Completed (Available Now)
+- [x] Primary Routing Engine (Commands/Messages).
+- [x] Middleware Pipeline.
+- [x] State Management Support (InMemory / Redis).
+- [x] HTTP Client for text messages and templates.
+- [x] Automated Webhook Controller.
+- [x] Local Simulation Mode (MOCK CLI).
 
-### ⏳ Próximamente (Next Steps)
-- [ ] **Soporte Multimedia**: Envía y recibe Imágenes, PDFs, Vídeos y Cadenas de Audio.
-- [ ] **Mensajes Interactivos**: Soporte nativo para Botones (`Reply Buttons`) y Listas.
-- [ ] **Seguridad Avanzada**: Verificación automática de la firma de seguridad de Meta (X-Hub-Signature).
-- [ ] **Persistencia Extendida**: Adaptadores para SQL Server, MongoDB y CosmosDB.
-- [ ] **Documentación**: Generador automático de esquemas de conversación.
+### ⏳ Coming Soon (Next Steps)
+- [ ] **Multimedia Support**: Send and receive Images, PDFs, Videos, and Audio.
+- [ ] **Interactive Messages**: Native support for Reply Buttons and Lists.
+- [ ] **Advanced Security**: Automatic signature verification (X-Hub-Signature).
+- [ ] **Extended Persistence**: Adapters for SQL Server, MongoDB, and CosmosDB.
+- [ ] **Documentation**: Automatic conversation flow generator.
 
 ---
 
-## 🤝 Contribuciones
+## 🤝 Contributions
 
-Este es un proyecto abierto. Si tienes una idea chula o quieres arreglar un bug, ¡abre un PR o un Issue! 
+This is an open project. If you have a cool idea or want to fix a bug, open a PR or an Issue!
 
-Hecho por [Moha0x1](https://github.com/Moha0x1).
+Created by [Moha0x1](https://github.com/Moha0x1).
