@@ -1,0 +1,23 @@
+{
+    "name": "WhatsNavigator",
+    "version": "0.1.0",
+    "workspace": {
+        "root": ".",
+        "include": [
+            "WhatsNavigator.Core/**/*.cs",
+            "WhatsNavigator.Infrastructure/**/*.cs",
+            "WhatsNavigator.Sample/**/*.cs"
+        ]
+    },
+    "skills": [],
+    "mcpServers": [],
+    "context": {
+        "description": "A .NET WhatsApp bot framework inspired by Telegram Navigator",
+        "stack": [
+            ".NET",
+            "ASP.NET Core",
+            "Webhooks",
+            "WhatsApp Cloud API"
+        ]
+    }
+}

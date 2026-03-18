@@ -1,0 +1,23 @@
+  Determining projects to restore...
+  Restored C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Infrastructure\WhatsNavigator.Infrastructure.csproj (in 221 ms).
+  Restored C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\WhatsNavigator.Core.csproj (in 221 ms).
+  Restored C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Sample\WhatsNavigator.Sample.csproj (in 221 ms).
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\Models\WhatsAppContext.cs(10,44): warning CS8625: Cannot convert null literal to non-nullable reference type. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\WhatsNavigator.Core.csproj]
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\Interfaces\IWhatsAppClient.cs(6,103): warning CS8625: Cannot convert null literal to non-nullable reference type. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\WhatsNavigator.Core.csproj]
+  WhatsNavigator.Core -> C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\bin\Debug\net9.0\WhatsNavigator.Core.dll
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Infrastructure\Client\WhatsAppClient.cs(38,116): warning CS8625: Cannot convert null literal to non-nullable reference type. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Infrastructure\WhatsNavigator.Infrastructure.csproj]
+  WhatsNavigator.Infrastructure -> C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Infrastructure\bin\Debug\net9.0\WhatsNavigator.Infrastructure.dll
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Sample\Program.cs(11,1): error CS8803: Top-level statements must precede namespace and type declarations. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Sample\WhatsNavigator.Sample.csproj]
+
+Build FAILED.
+
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\Models\WhatsAppContext.cs(10,44): warning CS8625: Cannot convert null literal to non-nullable reference type. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\WhatsNavigator.Core.csproj]
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\Interfaces\IWhatsAppClient.cs(6,103): warning CS8625: Cannot convert null literal to non-nullable reference type. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Core\WhatsNavigator.Core.csproj]
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Infrastructure\Client\WhatsAppClient.cs(38,116): warning CS8625: Cannot convert null literal to non-nullable reference type. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Infrastructure\WhatsNavigator.Infrastructure.csproj]
+C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Sample\Program.cs(11,1): error CS8803: Top-level statements must precede namespace and type declarations. [C:\Users\MKHOUYAOUI\.gemini\antigravity\scratch\WhatsNavigator\WhatsNavigator.Sample\WhatsNavigator.Sample.csproj]
+    3 Warning(s)
+    1 Error(s)
+
+Time Elapsed 00:00:02.74
+
+Workload updates are available. Run `dotnet workload list` for more information.
