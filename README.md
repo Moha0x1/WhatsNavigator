@@ -1,44 +1,82 @@
-# WhatsNavigator 🚀
+# 🧭 WhatsNavigator
 
-**WhatsNavigator** is a lightweight, opinionated, and production-ready WhatsApp bot framework for .NET. Inspired by Telegram bot frameworks like Navigator, it simplifies the interaction with Meta's WhatsApp Cloud API.
+> **The Ultimate WhatsApp Bot Framework for .NET 9 (Downgraded to 8.0 for ultimate compatibility)**
 
-## Features
-- ✅ **Minimal Setup**: Get started with just a few lines of code.
-- ✅ **Fluent Routing**: Easy to define command and message handlers.
-- ✅ **Middleware Support**: Intercept and process messages before they reach your handlers.
-- ✅ **State Management**: Built-in support for InMemory and Redis state.
-- ✅ **Mock Mode**: Develop and test locally without a Meta account.
+WhatsNavigator es un framework **opinionado**, potente y extremadamente sencillo de usar, diseñado específicamente para dominar la **WhatsApp Cloud API** de Meta. No es solo un cliente; es el motor que permite construir bots de producción con una arquitectura limpia y una experiencia de desarrollo fluida.
 
-## Quick Start (Sample)
+---
+
+## ✨ Características que lo hacen único
+
+*   🚀 **Fluent Routing**: Registra comandos y manejadores con una sintaxis que fluye de forma natural.
+*   🛡️ **Middleware Middleware**: Inyecta lógica de auditoría, logging o seguridad global en nanosegundos.
+*   🧠 **State Management Nativo**: Soporte *out-of-the-box* para gestionar conversaciones complejas (InMemory y Redis).
+*   🎭 **Mock & Simulation**: Desarrolla localmente sin cables, sin API Keys y sin cuenta de Meta.
+*   🔌 **Inyección de Dependencias**: Perfectamente integrado con el ecosistema de `IServiceCollection`.
+
+---
+
+## 🏎️ Inicio Rápido
+
+Configura tu bot en menos de 1 minuto:
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de WhatsNavigator
 builder.Services.AddWhatsNavigator(options => {
-    options.ApiToken = "YOUR_TOKEN";
-    options.PhoneNumberId = "YOUR_ID";
+    options.ApiToken = "MY_META_TOKEN";
+    options.PhoneNumberId = "PHONE_ID";
 })
-.Use<LoggingMiddleware>()
-.OnCommand("start", async ctx => {
-    await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "Welcome to WhatsNavigator! 🚀");
+.Use<LoggingMiddleware>() // Middleware global
+.OnCommand("ping", async ctx => {
+    await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "🏓 Pong!");
 })
-.OnMessage(m => m.Text != null && m.Text.Contains("hello"), async ctx => {
-    await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "Hi! How can I help you?");
+.OnMessage(m => m.Text?.Contains("comprar") == true, async ctx => {
+    await ctx.Client.SendTextAsync(ctx.Message.SenderNumber, "🛒 ¿Qué te gustaría comprar?");
 });
 
 var app = builder.Build();
-app.MapControllers();
+app.MapControllers(); // Expone el endpoint /webhook automáticamente
 app.Run();
 ```
 
-## Local Development (Simulating WhatsApp)
+---
 
-If you don't have a Meta account yet, WhatsNavigator runs in **MOCK mode** by default if the API Token is empty. You can test your bot using the provided `simulator.ps1` script:
+## 🛠️ Sandbox Local (Sin Cuenta de Meta)
 
+¿No tienes cuenta de Meta? **No hay problema.** WhatsNavigator detecta si no hay Token y activa el **modo consola** automáticamente. 
+
+Usa nuestro simulador incluido:
 ```powershell
-.\simulator.ps1 -Msg "/start"
+.\simulator.ps1 -Msg "Hola! Quiero probar el bot"
 ```
 
-## Contributing
+---
 
-Created with ❤️ by [Moha0x1](https://github.com/Moha0x1).
+## 📋 Roadmap & Tareas (Tareas por hacer)
+
+¿Quieres contribuir? Aquí tienes lo que hemos hecho y lo que soñamos para el futuro:
+
+### ✅ Finalizado (Available Now)
+- [x] Motor de Routing principal (Commands/Messages).
+- [x] Pipeline de Middlewares.
+- [x] Soporte para State (InMemory / Redis).
+- [x] Cliente HTTP para mensajes de texto y plantillas.
+- [x] Webhook Controller automatizado.
+- [x] Modo de simulación local (MOCK CLI).
+
+### ⏳ Próximamente (Next Steps)
+- [ ] **Soporte Multimedia**: Envía y recibe Imágenes, PDFs, Vídeos y Cadenas de Audio.
+- [ ] **Mensajes Interactivos**: Soporte nativo para Botones (`Reply Buttons`) y Listas.
+- [ ] **Seguridad Avanzada**: Verificación automática de la firma de seguridad de Meta (X-Hub-Signature).
+- [ ] **Persistencia Extendida**: Adaptadores para SQL Server, MongoDB y CosmosDB.
+- [ ] **Documentación**: Generador automático de esquemas de conversación.
+
+---
+
+## 🤝 Contribuciones
+
+Este es un proyecto abierto. Si tienes una idea chula o quieres arreglar un bug, ¡abre un PR o un Issue! 
+
+Hecho con mucha pasión por [Moha0x1](https://github.com/Moha0x1).
