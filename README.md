@@ -79,4 +79,4 @@ Usa nuestro simulador incluido:
 
 Este es un proyecto abierto. Si tienes una idea chula o quieres arreglar un bug, ¡abre un PR o un Issue! 
 
-Hecho con mucha pasión por [Moha0x1](https://github.com/Moha0x1).
+Hecho por [Moha0x1](https://github.com/Moha0x1).
